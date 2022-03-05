@@ -12,6 +12,9 @@ function App() {
         </Route>
         
         {/* Details page */}
+        <Route path="/details">
+          <p>yerp</p>
+        </Route>
 
         {/* Add Movie page */}
       </Router>
