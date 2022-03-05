@@ -14,11 +14,11 @@ function App() {
         
         {/* Details page */}
         <Route path="/details">
-          <p>yerp</p>
+        
+          <MovieDetails/>
         </Route>
         {/* Add Movie page */}
         <Route>
-          <MovieDetails/>
         </Route>
       </Router>
     </div>
