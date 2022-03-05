@@ -21,7 +21,7 @@ function* fetchAllMovies() {
     // get all movies from the DB
     try {
         const movies = yield axios.get('/api/movie');
-        console.log('get all:', movies.data);
+        // console.log('get all:', movies.data);
         yield put({ type: 'SET_MOVIES', payload: movies.data });
 
     } catch {
@@ -32,11 +32,12 @@ function* fetchAllMovies() {
 
 function* fetchMovieGenres(action) {
     // get movies genres from the DB
-    console.log('Now its over here', action.payload);
+    // console.log('Now its over here', action.payload);
     
     try {
         const genres = yield axios.get(`/api/genre/${action.payload.id}`);
-        console.log('get all:', genres.data);
+        // console.log('get all:', genres.data);
+        yield put({ type: 'SET_GENRES', payload: genres.data });
         yield put({ type: 'SET_MOVIE_DETAILS', payload: action.payload });
 
     } catch {
@@ -62,7 +63,7 @@ const movies = (state = [], action) => {
 const genres = (state = [], action) => {
     switch (action.type) {
         case 'SET_GENRES':
-            console.log('tis koffis log',action.payload);
+            // console.log('tis koffis log',action.payload);
             return action.payload;
         default:
             return state;
@@ -72,8 +73,8 @@ const genres = (state = [], action) => {
 const selectedMovie = (state = [], action) => {
     switch (action.type) {
         case 'SET_MOVIE_DETAILS':
-            console.log('tis a different log',action.payload);
-            // return action.payload;
+            // console.log('tis a different log',action.payload);
+            return action.payload;
         default:
             return state;
     }

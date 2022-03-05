@@ -16,9 +16,9 @@ function MovieList() {
 
     const handleClick = (event) => {
         console.log('hai', event);
-        history.push('/details')
         // console.log('just checkinggg');
         dispatch({type:'FETCH_GENRES', payload: event})
+        history.push('/details')
     }
 
     return (
