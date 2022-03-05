@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux"
 import { useHistory } from 'react-router-dom';
+import './MovieDetails.css'
 
 
 function MovieDetails() {
@@ -12,7 +13,7 @@ function MovieDetails() {
     console.log('these are the deets', details, genres);
     return (
         <>
-            <main>
+            <main className="single-movie">
                 <h2>{details.title}</h2>
 
                 <div key={details.id} >
