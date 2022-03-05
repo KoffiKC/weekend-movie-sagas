@@ -18,6 +18,7 @@ function MovieList() {
         console.log('hai', event);
         // console.log('just checkinggg');
         dispatch({type:'FETCH_GENRES', payload: event})
+        // send the user to the page for specified details
         history.push('/details')
     }
 
