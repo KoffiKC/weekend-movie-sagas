@@ -14,6 +14,7 @@ import axios from 'axios';
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
+    yield takeEvery('FETCH_GENRES', fetchMovieGenres);
 }
 
 function* fetchAllMovies() {
@@ -29,6 +30,21 @@ function* fetchAllMovies() {
         
 }
 
+function* fetchMovieGenres(action) {
+    // get movies genres from the DB
+    console.log('Now its over here', action.payload);
+    
+    try {
+        const genres = yield axios.get(`/api/genre/${action.payload.id}`);
+        console.log('get all:', genres.data);
+        // yield put({ type: 'SET_GENRES', payload: genres.data });
+
+    } catch {
+        console.log('get genre error');
+    }
+        
+}
+
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
 
@@ -36,7 +52,6 @@ const sagaMiddleware = createSagaMiddleware();
 const movies = (state = [], action) => {
     switch (action.type) {
         case 'SET_MOVIES':
-            console.log('tis koffis log',action.payload);
             return action.payload;
         default:
             return state;

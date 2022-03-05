@@ -2,9 +2,11 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool')
 
-router.get('/', (req, res) => {
+router.get('/:id', (req, res) => {
   // Add query to get all genres
-  res.sendStatus(500)
+console.log('the id of movie clicked', req.params.id);
+
+  res.sendStatus(418)
 });
 
 module.exports = router;

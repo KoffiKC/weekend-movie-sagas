@@ -15,8 +15,10 @@ function App() {
         <Route path="/details">
           <p>yerp</p>
         </Route>
-
         {/* Add Movie page */}
+        <Route>
+          
+        </Route>
       </Router>
     </div>
   );
